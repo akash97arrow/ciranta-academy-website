@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contact Us</title>
+
+		<!-- Main Css -->
+		<link rel="stylesheet" href="/css/index.css" />
+		<link rel="stylesheet" href="/css/contact.css" />
+
+		<!-- Google font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body>
+		<!-- Header -->
+
+		<!-- Contact Section -->
+		<section class="contact-page">
+			<div class="contact-wrapper">
+				<!-- LEFT CONTENT -->
+				<div class="contact-content">
+					<p class="section-label">GET IN TOUCH</p>
+
+					<h1>
+						We'd Love to<br />
+						Hear From You
+					</h1>
+
+					<p class="contact-description">
+						Whether you have a question about our programs, admissions, research, or campus life, our team is here
+						to help.
+					</p>
+
+					<!-- Contact Details -->
+
+					<div class="contact-details">
+						<div class="contact-detail">
+							<div class="detail-icon">
+								<span>✉</span>
+							</div>
+
+							<div>
+								<span class="detail-title"> Email </span>
+
+								<p>info@evergreenuniversity.com</p>
+							</div>
+						</div>
+
+						<div class="contact-detail">
+							<div class="detail-icon">
+								<span>⌕</span>
+							</div>
+
+							<div>
+								<span class="detail-title"> Phone </span>
+
+								<p>+91 999-533-2528</p>
+							</div>
+						</div>
+
+						<div class="contact-detail">
+							<div class="detail-icon">
+								<span>⌖</span>
+							</div>
+
+							<div>
+								<span class="detail-title"> Campus </span>
+
+								<p>
+									No.21, Gf, 2nd Stage, 1st Cr, Oss, Agb Layout,<br />
+									Jb Kaval, Nandini Layout, Bengaluru, Karnataka 560096
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- RIGHT FORM -->
+				<div class="contact-form-card">
+					<p class="form-label">CONTACT US</p>
+
+					<h2>Send Us a Message</h2>
+
+					<p class="form-description">
+						Have a question or need assistance? Fill out the form below and our team will get back to you shortly.
+					</p>
+
+					<form action="send_message.php" method="POST">
+						<div class="form-row">
+							<div class="form-group">
+								<label for="firstname"> First Name </label>
+
+								<input
+									type="text"
+									id="firstname"
+									name="firstname"
+									placeholder="Enter your first name"
+									pattern="[A-Za-z\s]+"
+									title="First name should contain letters only"
+									required
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="lastname"> Last Name </label>
+
+								<input
+									type="text"
+									id="lastname"
+									name="lastname"
+									placeholder="Enter your last name"
+									pattern="[A-Za-z\s]+"
+									title="Last name should contain letters only"
+									required
+								/>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group">
+								<label for="phone"> Phone </label>
+
+								<input
+									type="tel"
+									id="phone"
+									name="phone"
+									placeholder="Enter your phone number"
+									inputmode="numeric"
+									pattern="[0-9]{10}"
+									title="Please enter a 10-digit phone number"
+									maxlength="10"
+									required
+								/>
+							</div>
+
+							<div class="form-group">
+								<label for="email"> Email </label>
+								<input type="email" id="email" name="email" placeholder="Enter your email" required />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="message"> Message </label>
+							<textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+						</div>
+
+						<button type="submit" class="contact-submit">
+							Send Message
+							<span>→</span>
+						</button>
+					</form>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
