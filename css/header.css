@@ -1,0 +1,306 @@
+/* =========================================
+   SHARED HEADER
+========================================= */
+
+.site-header {
+    height: 78px;
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e8ecec;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* =========================================
+   HEADER CONTAINER
+========================================= */
+
+.site-header .nav {
+    width: min(1160px, calc(100% - 80px));
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/* =========================================
+   CIRANTA BRAND
+   Same design as Home page
+========================================= */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #102f49;
+
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 19px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+
+/* C Logo */
+
+.brand-mark {
+    width: 30px;
+    height: 30px;
+
+    border: 2px solid #102f49;
+
+    border-radius: 50% 50% 50% 8px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    transform: rotate(-15deg);
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.main-nav {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 27px;
+}
+
+.main-nav a {
+    position: relative;
+
+    color: #526879;
+
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: #102f49;
+}
+
+
+/* =========================================
+   ACTIVE NAVIGATION
+   Underline style from your second image
+========================================= */
+
+.main-nav a.active {
+    color: #102f49;
+}
+
+.main-nav a.active::after {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -7px;
+
+    height: 1px;
+
+    background: #102f49;
+}
+
+
+/* =========================================
+   EXPLORE PROGRAMMES BUTTON
+   Same style as Home page
+========================================= */
+
+.nav-button {
+    min-height: 37px;
+
+    padding: 0 16px;
+
+    border: 1px solid transparent;
+    border-radius: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background: #102f49;
+    color: #ffffff;
+
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: 0.2s ease;
+}
+
+.nav-button:hover {
+    background: #09243a;
+}
+
+.nav-button span {
+    font-size: 14px;
+    line-height: 1;
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.menu-button {
+    display: none;
+
+    width: 35px;
+    height: 35px;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.menu-button span {
+    width: 21px;
+    height: 1px;
+
+    background: #102f49;
+
+    display: block;
+
+    margin: 5px auto;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .main-nav {
+        gap: 15px;
+    }
+
+    .main-nav a {
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .site-header .nav {
+        width: min(100% - 40px, 700px);
+    }
+
+    .main-nav,
+    .nav-button {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+        margin-left: auto;
+    }
+
+
+    /* Mobile navigation when opened */
+
+    .main-nav.menu-open {
+        display: flex;
+
+        position: absolute;
+
+        top: 78px;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 0;
+
+        padding: 15px 20px;
+
+        background: #ffffff;
+
+        border-bottom: 1px solid #e8ecec;
+
+        box-shadow: 0 8px 20px rgba(20, 45, 60, 0.05);
+    }
+
+    .main-nav.menu-open a {
+        width: 100%;
+
+        padding: 12px 0;
+
+        font-size: 13px;
+    }
+
+    .main-nav.menu-open a.active::after {
+        display: none;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+
+    .site-header {
+        height: 68px;
+    }
+
+    .site-header .nav {
+        width: calc(100% - 30px);
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .main-nav.menu-open {
+        top: 68px;
+    }
+}
