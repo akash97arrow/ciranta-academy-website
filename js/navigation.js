@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 headerContainer.innerHTML = data;
 
-                setupNavigation(rootPath);
+                setupHeaderNavigation(rootPath);
 
             })
             .catch(error => {
@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 footerContainer.innerHTML = data;
 
+                setupFooterNavigation(rootPath);
+
             })
             .catch(error => {
                 console.error("Error loading footer:", error);
@@ -49,10 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       NAVIGATION SETUP
+       HEADER NAVIGATION
     ========================================= */
 
-    function setupNavigation(rootPath) {
+    function setupHeaderNavigation(rootPath) {
 
         const header = document.querySelector(".site-header");
 
@@ -70,9 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const page = link.getAttribute("href");
 
             if (page === "index.html") {
+
                 link.href = `${rootPath}index.html`;
+
             } else if (page.startsWith("pages/")) {
+
                 link.href = `${rootPath}${page}`;
+
             }
 
         });
@@ -104,11 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
            Active navigation item
         ----------------------------------------- */
 
-        const currentPage = window.location.pathname.split("/").pop();
+        const currentPage =
+            window.location.pathname.split("/").pop() || "index.html";
 
         navLinks.forEach(link => {
 
-            const linkPage = link.getAttribute("href").split("/").pop();
+            const linkPage =
+                link.getAttribute("href").split("/").pop();
 
             if (linkPage === currentPage) {
                 link.classList.add("active");
@@ -128,7 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             menuButton.addEventListener("click", () => {
 
-                const isOpen = mainNav.classList.toggle("menu-open");
+                const isOpen =
+                    mainNav.classList.toggle("menu-open");
 
                 menuButton.setAttribute(
                     "aria-expanded",
@@ -143,6 +152,41 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
         }
+
+    }
+
+
+    /* =========================================
+       FOOTER NAVIGATION
+    ========================================= */
+
+    function setupFooterNavigation(rootPath) {
+
+        const footer = document.querySelector(".site-footer");
+
+        if (!footer) return;
+
+        const footerLinks = footer.querySelectorAll("a");
+
+        footerLinks.forEach(link => {
+
+            const href = link.getAttribute("href");
+
+            if (!href || href.startsWith("#") || href.startsWith("mailto:")) {
+                return;
+            }
+
+            if (href === "index.html") {
+
+                link.href = `${rootPath}index.html`;
+
+            } else if (href.startsWith("pages/")) {
+
+                link.href = `${rootPath}${href}`;
+
+            }
+
+        });
 
     }
 
