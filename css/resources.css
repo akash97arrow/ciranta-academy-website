@@ -608,7 +608,7 @@ button {
     cursor: pointer
 }
 
-.footer-bottom {
+.footer .footer-bottom {
     border-top: 1px solid var(--line);
     padding-top: 18px;
     display: flex;
@@ -617,7 +617,7 @@ button {
     color: #7b858b
 }
 
-.footer-bottom div {
+.footer .footer-bottom div {
     display: flex;
     gap: 18px
 }
@@ -823,12 +823,12 @@ button {
         grid-template-columns: 1fr
     }
 
-    .footer-bottom {
+    .footer .footer-bottom {
         flex-direction: column;
         gap: 10px
     }
 
-    .footer-bottom div {
+    .footer .footer-bottom div {
         gap: 12px
     }
 }

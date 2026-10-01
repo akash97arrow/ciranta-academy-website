@@ -63,10 +63,6 @@ button {
     font: inherit;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 .container {
     width: min(var(--max), calc(100% - 80px));
     margin: auto;
