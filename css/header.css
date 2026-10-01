@@ -3,9 +3,17 @@
    Used on all Ciranta Academy pages
 ========================================= */
 
+body {
+    margin: 0;
+}
+
 .site-header {
     width: 100%;
     height: 78px;
+    min-height: 78px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    line-height: 1.6;
 
     background: #ffffff;
     border-bottom: 1px solid #e8ecec;
@@ -16,6 +24,7 @@
     position: relative;
     z-index: 1000;
 }
+
 
 
 /* =========================================
@@ -247,8 +256,7 @@
         width: calc(100% - 40px);
     }
 
-    .main-nav,
-    .nav-button {
+    .main-nav {
         display: none;
     }
 
@@ -305,6 +313,7 @@
 
     .site-header {
         height: 68px;
+        min-height: 68px;
     }
 
     .site-header .nav {
@@ -331,9 +340,7 @@
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
-    .main-nav a,
-    .nav-button {
+    .main-nav a {
         transition: none;
     }
 }

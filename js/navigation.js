@@ -88,11 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
            Fix CTA link
         ----------------------------------------- */
 
-        const navButton = header.querySelector(".nav-button");
+        // const navButton = header.querySelector(".nav-button");
 
-        if (navButton) {
-            navButton.href = `${rootPath}pages/programmes.html`;
-        }
+        // if (navButton) {
+        //     navButton.href = `${rootPath}pages/programmes.html`;
+        // }
 
 
         /* -----------------------------------------
