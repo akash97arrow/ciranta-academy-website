@@ -166,6 +166,7 @@ button {
     background: var(--navy);
     border-color: var(--navy);
     color: var(--white);
+    border-radius: 50px;
 }
 
 .btn-dark:hover {

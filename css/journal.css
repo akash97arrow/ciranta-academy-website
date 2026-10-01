@@ -28,9 +28,22 @@
    PAGE
 ========================================= */
 
-.journal-page {
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    font-family: 'DM Sans', Arial, sans-serif;
     background: var(--cream);
-    padding: 68px 0 110px;
+    color: var(--navy);
+    line-height: 1.6;
 }
 /* =========================================
    INTRODUCTION
@@ -39,7 +52,7 @@
 .journal-intro {
     width: min(var(--max-width), calc(100% - 80px));
     margin: 0 auto;
-    padding: 0 0 65px;
+    padding: 120px 0 65px;
 }
 
 .section-label {
