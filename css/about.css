@@ -80,15 +80,15 @@ h3 {
 }
 
 h1 {
-    font-size: clamp(46px, 4.5vw, 68px);
+    font-size: 64px;
     line-height: 1.02;
-    letter-spacing: -1.8px;
+    letter-spacing: 0;
 }
 
 h2 {
-    font-size: clamp(38px, 4vw, 58px);
+    font-size: 56px;
     line-height: 1.05;
-    letter-spacing: -0.8px;
+    letter-spacing: 0;
 }
 
 h3 {
@@ -413,7 +413,7 @@ p {
 }
 
 .learning-area:hover .area-arrow {
-    transform: translateX(8px);
+    transform: translateX(3px);
     color: var(--navy-dark);
 }
 
@@ -885,7 +885,7 @@ p {
     h1 {
         font-size: 46px;
         line-height: 1.04;
-        letter-spacing: -1.2px;
+        letter-spacing: 0;
     }
 
     h2 {
@@ -902,6 +902,23 @@ p {
 
     .about-hero-content p {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .learning-area {
+        grid-template-columns: 28px minmax(0, 1fr) 18px;
+        gap: 12px;
+        padding: 24px 10px;
+    }
+
+    .area-details {
+        min-width: 0;
+    }
+
+    .area-arrow {
+        font-size: 18px;
+        text-align: right;
     }
 }
 

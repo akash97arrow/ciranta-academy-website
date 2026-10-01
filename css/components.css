@@ -1,0 +1,140 @@
+:root {
+	--content-max: 1160px;
+	--page-gutter: clamp(18px, 3.2vw, 40px);
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-12: 48px;
+	--space-16: 64px;
+	--button-height: 46px;
+	--button-gutter: 22px;
+	--button-radius: 50px;
+	--transition-fast: 180ms;
+	--transition-ease: cubic-bezier(0.2, 0.65, 0.25, 1);
+	--focus-ring: #2f8f9d;
+}
+
+.container,
+.site-header .nav,
+.site-footer .footer-main,
+.site-footer .footer-bottom,
+.approach-cta-container,
+.cta-container,
+.about-hero-container,
+.who-we-are-container,
+.areas-learning-container,
+.learning-philosophy-container,
+.why-ciranta-container,
+.our-people-container,
+.about-cta-container,
+.journal-intro,
+.journal-section,
+.contact-wrapper {
+	width: min(var(--content-max), calc(100% - 2 * var(--page-gutter)));
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn,
+.button,
+.dark-button {
+	box-sizing: border-box;
+	min-height: var(--button-height);
+	padding: 0 var(--button-gutter);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-3);
+	border-radius: var(--button-radius);
+	font-family: 'DM Sans', Arial, sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.2;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition:
+		background-color var(--transition-fast) ease,
+		border-color var(--transition-fast) ease,
+		color var(--transition-fast) ease,
+		transform var(--transition-fast) var(--transition-ease);
+}
+
+.btn:hover,
+.button:hover,
+.dark-button:hover {
+	transform: translateY(-1px);
+}
+
+.btn:active,
+.button:active,
+.dark-button:active {
+	transform: translateY(0);
+}
+
+.btn:focus-visible,
+.button:focus-visible,
+.dark-button:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+	outline: 2px solid var(--focus-ring);
+	outline-offset: 4px;
+}
+
+.btn:disabled,
+.button:disabled,
+.dark-button:disabled {
+	cursor: not-allowed;
+	opacity: 0.65;
+}
+
+.btn span,
+.button span,
+.dark-button span {
+	display: inline-block;
+	line-height: 1;
+	transition: transform var(--transition-fast) ease;
+}
+
+.btn:hover span,
+.button:hover span,
+.dark-button:hover span {
+	transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.btn,
+	.button,
+	.dark-button,
+	.btn span,
+	.button span,
+	.dark-button span,
+	.team-card,
+	.resource-card,
+	.team-card .member-image img,
+	.resource-card .resource-image img {
+		transition: none;
+	}
+
+	.btn:hover,
+	.button:hover,
+	.btn:active,
+	.button:active,
+	.dark-button:hover,
+	.dark-button:active,
+	.btn:hover span,
+	.button:hover span,
+	.dark-button:hover span,
+	.team-card:hover,
+	.resource-card:hover,
+	.team-card:hover .member-image img,
+	.resource-card:hover .resource-image img {
+		transform: none;
+	}
+}

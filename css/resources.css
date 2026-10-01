@@ -367,7 +367,7 @@ button {
 }
 
 .resource-card:hover {
-    transform: translateY(-7px);
+    transform: translateY(-3px);
     box-shadow: 0 18px 38px rgba(16, 47, 74, .10)
 }
 
@@ -382,7 +382,7 @@ button {
 }
 
 .resource-card:hover .resource-image img {
-    transform: scale(1.06)
+    transform: scale(1.03)
 }
 
 .resource-body {

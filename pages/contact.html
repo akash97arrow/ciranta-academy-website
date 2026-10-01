@@ -25,10 +25,10 @@
     <!-- Shared CSS -->
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/style.css">
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/components.css">
 
 </head>
 
@@ -170,7 +170,18 @@
                     </p>
 
 
-                    <form action="send_message.php" method="POST">
+                    <form action="../php/contact.php" method="POST">
+
+                        <div class="form-honeypot" aria-hidden="true" inert hidden>
+                            <label for="website">Leave this field empty</label>
+                            <input
+                                type="text"
+                                id="website"
+                                name="website"
+                                tabindex="-1"
+                                autocomplete="off"
+                            >
+                        </div>
 
                         <!-- First + Last Name -->
                         <div class="form-row">
@@ -186,8 +197,7 @@
                                     id="firstname"
                                     name="firstname"
                                     placeholder="Enter your first name"
-                                    pattern="[A-Za-z\s]+"
-                                    title="First name should contain letters only"
+                                    maxlength="160"
                                     autocomplete="given-name"
                                     required
                                 >
@@ -206,8 +216,7 @@
                                     id="lastname"
                                     name="lastname"
                                     placeholder="Enter your last name"
-                                    pattern="[A-Za-z\s]+"
-                                    title="Last name should contain letters only"
+                                    maxlength="160"
                                     autocomplete="family-name"
                                     required
                                 >
@@ -273,6 +282,7 @@
                                 id="message"
                                 name="message"
                                 placeholder="Write your message..."
+                                maxlength="5000"
                                 required
                             ></textarea>
 
@@ -287,6 +297,15 @@
                             Send Message
                             <span>→</span>
                         </button>
+
+                        <p
+                            class="contact-form-status"
+                            id="contact-form-status"
+                            role="status"
+                            aria-live="polite"
+                            aria-atomic="true"
+                            hidden
+                        ></p>
 
                     </form>
 
@@ -307,6 +326,7 @@
 
     <!-- Shared Navigation -->
     <script src="../js/navigation.js"></script>
+    <script src="../js/contact-form.js"></script>
 
 </body>
 
