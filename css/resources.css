@@ -155,7 +155,8 @@ button {
     border: 1px solid var(--navy);
     font-size: 13px;
     font-weight: 600;
-    transition: .25s
+    transition: .25s;
+    border-radius: 30px;
 }
 
 .btn-dark {
