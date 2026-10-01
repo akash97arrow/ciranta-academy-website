@@ -1,26 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-	//    program category filter
-	const filters = document.querySelectorAll('.category');
-	const cards = document.querySelectorAll('.card');
-
-	filters.forEach((filter) => {
-		filter.addEventListener('click', () => {
-			filters.forEach((item) => {
-				item.classList.remove('active');
-			});
-
-			filter.classList.add('active');
-
-			const value = filter.dataset.filter;
-			cards.forEach((card) => {
-				const show = value === 'all' || card.dataset.category === value;
-				card.style.display = show ? '' : 'none';
-			});
-		});
-	});
-});
-
-// new feature code:
+// 	Learning tabs functionality:
 document.addEventListener('DOMContentLoaded', () => {
 	// program data
 	const programmeData = {
