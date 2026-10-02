@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Check whether the current page is inside the pages folder
-    const isPagesFolder = window.location.pathname.includes("/pages/");
-    const rootPath = isPagesFolder ? "../" : "";
+    const isNestedPage = /\/(pages|articles|programmes)\//.test(window.location.pathname);
+    const rootPath = isNestedPage ? "../" : "";
 
     /* =========================================
        LOAD HEADER
@@ -13,7 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (headerContainer) {
 
         fetch(`${rootPath}components/header.html`)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Header request failed: ${response.status}`);
+                }
+                return response.text();
+            })
             .then(data => {
 
                 headerContainer.innerHTML = data;
@@ -36,7 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (footerContainer) {
 
         fetch(`${rootPath}components/footer.html`)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Footer request failed: ${response.status}`);
+                }
+                return response.text();
+            })
             .then(data => {
 
                 footerContainer.innerHTML = data;
@@ -58,7 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const header = document.querySelector(".site-header");
 
-        if (!header) return;
+        if (!header || header.dataset.navigationReady === "true") return;
+
+        header.dataset.navigationReady = "true";
 
 
         /* -----------------------------------------
@@ -85,17 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* -----------------------------------------
-           Fix CTA link
-        ----------------------------------------- */
-
-        // const navButton = header.querySelector(".nav-button");
-
-        // if (navButton) {
-        //     navButton.href = `${rootPath}pages/programmes.html`;
-        // }
-
-
-        /* -----------------------------------------
            Fix brand link
         ----------------------------------------- */
 
@@ -110,16 +110,24 @@ document.addEventListener("DOMContentLoaded", () => {
            Active navigation item
         ----------------------------------------- */
 
-        const currentPage =
-            window.location.pathname.split("/").pop() || "index.html";
+        const pathSegments = window.location.pathname.split("/").filter(Boolean);
+        const currentFile = pathSegments[pathSegments.length - 1] || "index.html";
+        const parentFolder = pathSegments[pathSegments.length - 2];
+        const currentPage = parentFolder === "programmes"
+            ? "programmes.html"
+            : parentFolder === "articles"
+                ? "journal.html"
+                : currentFile;
 
         navLinks.forEach(link => {
 
-            const linkPage =
-                link.getAttribute("href").split("/").pop();
+            const linkPage = link.href.split("/").pop();
 
             if (linkPage === currentPage) {
                 link.classList.add("active");
+                link.setAttribute("aria-current", "page");
+            } else {
+                link.removeAttribute("aria-current");
             }
 
         });
@@ -131,26 +139,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const menuButton = header.querySelector(".menu-button");
         const mainNav = header.querySelector(".main-nav");
+        const mobileBreakpoint = window.matchMedia("(max-width: 851px)");
 
         if (menuButton && mainNav) {
 
-            menuButton.addEventListener("click", () => {
+            const isMenuOpen = () => mainNav.classList.contains("menu-open");
 
-                const isOpen =
-                    mainNav.classList.toggle("menu-open");
+            const setMenuOpen = (open, restoreFocus = false) => {
+                const shouldOpen = open && mobileBreakpoint.matches;
 
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    isOpen
-                );
-
+                mainNav.classList.toggle("menu-open", shouldOpen);
+                menuButton.setAttribute("aria-expanded", String(shouldOpen));
                 menuButton.setAttribute(
                     "aria-label",
-                    isOpen ? "Close menu" : "Open menu"
+                    shouldOpen ? "Close navigation menu" : "Open navigation menu"
                 );
 
+                if (!shouldOpen && restoreFocus && mobileBreakpoint.matches) {
+                    menuButton.focus();
+                }
+            };
+
+            menuButton.addEventListener("click", () => {
+                setMenuOpen(!isMenuOpen());
             });
 
+            mainNav.addEventListener("click", event => {
+                if (event.target.closest("a")) {
+                    setMenuOpen(false);
+                }
+            });
+
+            document.addEventListener("click", event => {
+                if (
+                    isMenuOpen() &&
+                    !mainNav.contains(event.target) &&
+                    !menuButton.contains(event.target)
+                ) {
+                    setMenuOpen(false);
+                }
+            });
+
+            document.addEventListener("keydown", event => {
+                if (event.key === "Escape" && isMenuOpen()) {
+                    setMenuOpen(false, true);
+                }
+            });
+
+            window.addEventListener("resize", () => {
+                if (!mobileBreakpoint.matches && isMenuOpen()) {
+                    setMenuOpen(false);
+                }
+            });
         }
 
     }

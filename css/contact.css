@@ -76,11 +76,11 @@
     color: var(--heading);
 
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(45px, 5vw, 64px);
+    font-size: 64px;
     font-weight: 500;
 
     line-height: 1.06;
-    letter-spacing: -1px;
+    letter-spacing: 0;
 }
 
 .contact-description {
@@ -309,6 +309,13 @@
         0 0 0 2px rgba(16, 47, 73, 0.06);
 }
 
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+    outline: 2px solid #2f8f9d;
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
 
 /* =========================================
    SUBMIT BUTTON
@@ -356,6 +363,40 @@
 
 .contact-submit:hover span {
     transform: translateX(4px);
+}
+
+.form-honeypot {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.contact-form-status {
+    margin: 20px 0 0;
+    padding: 12px 14px;
+    border: 1px solid transparent;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.contact-form-status[data-state="success"] {
+    border-color: #9dcdb2;
+    background: #f0f8f3;
+    color: #245b3d;
+}
+
+.contact-form-status[data-state="error"] {
+    border-color: #e3b4b4;
+    background: #fff5f5;
+    color: #8a2e2e;
+}
+
+.contact-submit:disabled {
+    cursor: wait;
+    opacity: 0.72;
 }
 
 
@@ -462,4 +503,9 @@
     .contact-submit span {
         transition: none;
     }
+}
+
+.contact-submit:focus-visible {
+    outline: 2px solid #2f8f9d;
+    outline-offset: 4px;
 }
