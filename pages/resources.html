@@ -1,186 +1,208 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Resources | Ciranta Academy</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="../css/resources.css" />
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/footer.css" />
+		<link rel="stylesheet" href="../css/components.css" />
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources | Ciranta Academy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../css/resources.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/components.css">
-</head>
+	<body>
+		<div id="header"></div>
 
-<body>
+		<main>
+			<section class="page-hero">
+				<div class="container hero-grid">
+					<div class="hero-copy">
+						<div class="eyebrow">RESOURCES • LEARN, EXPLORE & GROW</div>
+						<h1>Ideas and resources for your next step.</h1>
+						<p class="hero-text">
+							Explore practical guides, learning insights, career resources and useful ideas designed to support
+							you beyond the classroom.
+						</p>
+						<div class="hero-buttons">
+							<a class="btn btn-dark" href="#resources">Explore Resources <span>→</span></a
+							><a class="btn btn-light" href="#categories">Browse Topics</a>
+						</div>
+					</div>
+					<div class="hero-image">
+						<img src="../images/resources/resource-1.jpeg" alt="Books and learning resources" />
+					</div>
+				</div>
+			</section>
 
-    <div id="header"></div>
+			<section class="stats">
+				<div class="container stats-grid">
+					<div class="stat"><strong>Guides</strong><span>Practical learning material</span></div>
+					<div class="stat"><strong>Insights</strong><span>Ideas for continuous growth</span></div>
+					<div class="stat"><strong>Career</strong><span>Resources for your next step</span></div>
+					<div class="stat"><strong>Tools</strong><span>Useful learning support</span></div>
+				</div>
+			</section>
 
-    <main>
-        <section class="page-hero">
-            <div class="container hero-grid">
-                <div class="hero-copy">
-                    <div class="eyebrow">RESOURCES • LEARN, EXPLORE & GROW</div>
-                    <h1>Ideas and resources for your next step.</h1>
-                    <p class="hero-text">Explore practical guides, learning insights, career resources and useful ideas
-                        designed to support you beyond the classroom.</p>
-                    <div class="hero-buttons"><a class="btn btn-dark" href="#resources">Explore Resources
-                            <span>→</span></a><a class="btn btn-light" href="#categories">Browse Topics</a></div>
-                </div>
-                <div class="hero-image"><img
-                        src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1200&q=85"
-                        alt="Books and learning resources"></div>
-            </div>
-        </section>
+			<section class="section" id="resources">
+				<div class="container">
+					<div class="section-heading">
+						<div>
+							<div class="eyebrow">EXPLORE OUR LIBRARY</div>
+							<h2>Resources that help you move forward.</h2>
+						</div>
+						<a class="text-link" href="#categories">View topics →</a>
+					</div>
+					<div class="category-grid" id="categories">
+						<button class="category active" data-filter="all">All Resources</button
+						><button class="category" data-filter="career">Career</button
+						><button class="category" data-filter="learning">Learning</button
+						><button class="category" data-filter="leadership">Leadership</button
+						><button class="category" data-filter="digital">Digital</button>
+					</div>
+					<div class="resource-grid">
+						<article class="resource-card" data-category="career">
+							<div class="resource-image">
+								<img loading="lazy" src="../images/resources/rtab-1.jpeg" alt="Career planning" />
+							</div>
+							<div class="resource-body">
+								<span class="tag">CAREER</span>
+								<h3>Building a Career Plan That Works</h3>
+								<p>
+									A practical starting point for setting meaningful career goals and turning them into manageable
+									steps.
+								</p>
+								<a aria-disabled="true" class="read-link">Read Resource →</a>
+							</div>
+						</article>
+						<article class="resource-card" data-category="learning">
+							<div class="resource-image">
+								<img loading="lazy" src="../images/resources/rtab-2.jpeg" alt="Student studying" />
+							</div>
+							<div class="resource-body">
+								<span class="tag">LEARNING</span>
+								<h3>How to Build Better Learning Habits</h3>
+								<p>
+									Simple ways to create a consistent learning routine, stay focused and make progress over time.
+								</p>
+								<a aria-disabled="true" class="read-link">Read Resource →</a>
+							</div>
+						</article>
+						<article class="resource-card" data-category="leadership">
+							<div class="resource-image">
+								<img loading="lazy" src="../images/resources/rtab-3.jpeg" alt="Team discussion" />
+							</div>
+							<div class="resource-body">
+								<span class="tag">LEADERSHIP</span>
+								<h3>Principles of Practical Leadership</h3>
+								<p>
+									Explore the everyday habits that help leaders communicate clearly, collaborate and create
+									direction.
+								</p>
+								<a aria-disabled="true" class="read-link">Read Resource →</a>
+							</div>
+						</article>
+						<article class="resource-card" data-category="digital">
+							<div class="resource-image">
+								<img loading="lazy" src="../images/resources/rtab-4.jpeg" alt="Digital analytics" />
+							</div>
+							<div class="resource-body">
+								<span class="tag">DIGITAL</span>
+								<h3>Understanding Digital Thinking</h3>
+								<p>A clear introduction to the ideas and skills that shape modern digital work and business.</p>
+								<a aria-disabled="true" class="read-link">Read Resource →</a>
+							</div>
+						</article>
+						<article class="resource-card" data-category="career">
+							<div class="resource-image">
+								<img loading="lazy" src="../images/resources/rtab-5.jpeg" alt="Planning work" />
+							</div>
+							<div class="resource-body">
+								<span class="tag">CAREER</span>
+								<h3>Preparing for Your Next Interview</h3>
+								<p>
+									Use this checklist to prepare your examples, questions and communication before an interview.
+								</p>
+								<a aria-disabled="true" class="read-link">Read Resource →</a>
+							</div>
+						</article>
+						<article class="resource-card" data-category="learning">
+							<div class="resource-image">
+								<img loading="lazy" src="../images/resources/rtab-6.jpeg" alt="Students learning together" />
+							</div>
+							<div class="resource-body">
+								<span class="tag">LEARNING</span>
+								<h3>Learning Through Practice</h3>
+								<p>
+									Why applying ideas, reflecting on outcomes and trying again can make learning more meaningful.
+								</p>
+								<a aria-disabled="true" class="read-link">Read Resource →</a>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
 
-        <section class="stats">
-            <div class="container stats-grid">
-                <div class="stat"><strong>Guides</strong><span>Practical learning material</span></div>
-                <div class="stat"><strong>Insights</strong><span>Ideas for continuous growth</span></div>
-                <div class="stat"><strong>Career</strong><span>Resources for your next step</span></div>
-                <div class="stat"><strong>Tools</strong><span>Useful learning support</span></div>
-            </div>
-        </section>
+			<section class="featured">
+				<div class="container featured-grid">
+					<div class="featured-image">
+						<img loading="lazy" src="../images/resources/resource-2.jpeg" alt="Library shelves" />
+					</div>
+					<div class="featured-copy">
+						<div class="eyebrow">LEARNING JOURNAL</div>
+						<h2>Keep learning beyond the course.</h2>
+						<p>
+							Our resource library is designed to complement your learning journey with practical ideas you can
+							revisit whenever you need them.
+						</p>
+						<div class="features">
+							<div class="feature">
+								<span>01</span>
+								<div>
+									<h4>Practical</h4>
+									<p>Clear ideas you can apply to real situations.</p>
+								</div>
+							</div>
+							<div class="feature">
+								<span>02</span>
+								<div>
+									<h4>Useful</h4>
+									<p>Resources built around common learning and career needs.</p>
+								</div>
+							</div>
+							<div class="feature">
+								<span>03</span>
+								<div>
+									<h4>Ongoing</h4>
+									<p>Keep exploring as your goals and skills develop.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-        <section class="section" id="resources">
-            <div class="container">
-                <div class="section-heading">
-                    <div>
-                        <div class="eyebrow">EXPLORE OUR LIBRARY</div>
-                        <h2>Resources that help you move forward.</h2>
-                    </div><a class="text-link" href="#categories">View topics →</a>
-                </div>
-                <div class="category-grid" id="categories"><button class="category active" data-filter="all">All
-                        Resources</button><button class="category" data-filter="career">Career</button><button
-                        class="category" data-filter="learning">Learning</button><button class="category"
-                        data-filter="leadership">Leadership</button><button class="category"
-                        data-filter="digital">Digital</button></div>
-                <div class="resource-grid">
-                    <article class="resource-card" data-category="career">
-                        <div class="resource-image"><img
-                            loading="lazy"
-                                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80"
-                                alt="Career planning"></div>
-                        <div class="resource-body"><span class="tag">CAREER</span>
-                            <h3>Building a Career Plan That Works</h3>
-                            <p>A practical starting point for setting meaningful career goals and turning them into
-                                manageable steps.</p><a aria-disabled="true" class="read-link">Read Resource →</a>
-                        </div>
-                    </article>
-                    <article class="resource-card" data-category="learning">
-                        <div class="resource-image"><img
-                            loading="lazy"
-                                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=900&q=80"
-                                alt="Student studying"></div>
-                        <div class="resource-body"><span class="tag">LEARNING</span>
-                            <h3>How to Build Better Learning Habits</h3>
-                            <p>Simple ways to create a consistent learning routine, stay focused and make progress over
-                                time.</p><a aria-disabled="true" class="read-link">Read Resource →</a>
-                        </div>
-                    </article>
-                    <article class="resource-card" data-category="leadership">
-                        <div class="resource-image"><img
-                            loading="lazy"
-                                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80"
-                                alt="Team discussion"></div>
-                        <div class="resource-body"><span class="tag">LEADERSHIP</span>
-                            <h3>Principles of Practical Leadership</h3>
-                            <p>Explore the everyday habits that help leaders communicate clearly, collaborate and create
-                                direction.</p><a aria-disabled="true" class="read-link">Read Resource →</a>
-                        </div>
-                    </article>
-                    <article class="resource-card" data-category="digital">
-                        <div class="resource-image"><img
-                            loading="lazy"
-                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"
-                                alt="Digital analytics"></div>
-                        <div class="resource-body"><span class="tag">DIGITAL</span>
-                            <h3>Understanding Digital Thinking</h3>
-                            <p>A clear introduction to the ideas and skills that shape modern digital work and business.
-                            </p><a aria-disabled="true" class="read-link">Read Resource →</a>
-                        </div>
-                    </article>
-                    <article class="resource-card" data-category="career">
-                        <div class="resource-image"><img
-                            loading="lazy"
-                                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80"
-                                alt="Planning work"></div>
-                        <div class="resource-body"><span class="tag">CAREER</span>
-                            <h3>Preparing for Your Next Interview</h3>
-                            <p>Use this checklist to prepare your examples, questions and communication before an
-                                interview.</p><a aria-disabled="true" class="read-link">Read Resource →</a>
-                        </div>
-                    </article>
-                    <article class="resource-card" data-category="learning">
-                        <div class="resource-image"><img
-                            loading="lazy"
-                                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80"
-                                alt="Students learning together"></div>
-                        <div class="resource-body"><span class="tag">LEARNING</span>
-                            <h3>Learning Through Practice</h3>
-                            <p>Why applying ideas, reflecting on outcomes and trying again can make learning more
-                                meaningful.</p><a aria-disabled="true" class="read-link">Read Resource →</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+			<section class="cta">
+				<div class="container cta-inner">
+					<div>
+						<div class="eyebrow">READY TO LEARN?</div>
+						<h2>Take the next step with Ciranta.</h2>
+						<p>Explore our programmes and find a learning path that fits your goals.</p>
+					</div>
+					<a class="btn btn-white" href="programmes.html">Explore Programmes <span>→</span></a>
+				</div>
+			</section>
+		</main>
 
-        <section class="featured">
-            <div class="container featured-grid">
-                <div class="featured-image"><img
-                    loading="lazy"
-                        src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=85"
-                        alt="Library shelves"></div>
-                <div class="featured-copy">
-                    <div class="eyebrow">LEARNING JOURNAL</div>
-                    <h2>Keep learning beyond the course.</h2>
-                    <p>Our resource library is designed to complement your learning journey with practical ideas you can
-                        revisit whenever you need them.</p>
-                    <div class="features">
-                        <div class="feature"><span>01</span>
-                            <div>
-                                <h4>Practical</h4>
-                                <p>Clear ideas you can apply to real situations.</p>
-                            </div>
-                        </div>
-                        <div class="feature"><span>02</span>
-                            <div>
-                                <h4>Useful</h4>
-                                <p>Resources built around common learning and career needs.</p>
-                            </div>
-                        </div>
-                        <div class="feature"><span>03</span>
-                            <div>
-                                <h4>Ongoing</h4>
-                                <p>Keep exploring as your goals and skills develop.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+		<div id="footer"></div>
 
-        <section class="cta">
-            <div class="container cta-inner">
-                <div>
-                    <div class="eyebrow">READY TO LEARN?</div>
-                    <h2>Take the next step with Ciranta.</h2>
-                    <p>Explore our programmes and find a learning path that fits your goals.</p>
-                </div><a class="btn btn-white" href="programmes.html">Explore Programmes <span>→</span></a>
-            </div>
-        </section>
-    </main>
+		<script src="../js/navigation.js"></script>
 
-    <div id="footer"></div>
-
-    <script src="../js/navigation.js"></script>
-
-    <script src="../js/resources.js"></script>
-</body>
-
+		<script src="../js/resources.js"></script>
+	</body>
 </html>
