@@ -30,7 +30,7 @@
 
 .journal-page {
     background: var(--cream);
-    padding: 68px 0 110px;
+    padding: 95px 0 110px;
 }
 /* =========================================
    INTRODUCTION
@@ -423,7 +423,7 @@
     margin: 0;
     color: var(--text);
     font-family: 'DM Sans', Arial, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.75;
 }
 

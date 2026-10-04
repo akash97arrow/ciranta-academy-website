@@ -51,12 +51,42 @@ body {
     gap: 30px;
 }
 
+/* =========================================
+   NAVBAR LOGO
+========================================= */
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo {
+    width: 145px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .nav-logo {
+        width: 140px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-logo {
+        width: 135px;
+    }
+}
 
 /* =========================================
    CIRANTA BRAND
 ========================================= */
 
-.brand {
+/* .brand {
     display: inline-flex;
     align-items: center;
     flex: 0 0 auto;
@@ -71,14 +101,14 @@ body {
 
     white-space: nowrap;
     text-decoration: none;
-}
+} */
 
 
 /* =========================================
    BRAND MARK
 ========================================= */
 
-.brand-mark {
+/* .brand-mark {
     width: 30px;
     height: 30px;
 
@@ -94,7 +124,7 @@ body {
     font-weight: 700;
 
     transform: rotate(-15deg);
-}
+} */
 
 
 /* =========================================
