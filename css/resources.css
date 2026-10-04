@@ -341,7 +341,7 @@ button {
     border: 1px solid #d7dddf;
     color: #60717e;
     padding: 9px 16px;
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
     transition: .2s
 }
@@ -453,7 +453,7 @@ button {
 
 .featured-copy>p:not(.eyebrow) {
     color: #63717b;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.8;
     max-width: 560px;
     margin-bottom: 24px
@@ -483,13 +483,13 @@ button {
 }
 
 .feature h4 {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--navy);
     margin-bottom: 2px
 }
 
 .feature p {
-    font-size: 11px;
+    font-size: 14px;
     color: #71808a
 }
 

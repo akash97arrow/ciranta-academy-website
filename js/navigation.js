@@ -3,27 +3,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const isNestedPage = /\/(pages|articles|programmes)\//.test(window.location.pathname);
     const rootPath = isNestedPage ? "../" : "";
 
-    /* =========================================
-       LOAD HEADER
-    ========================================= */
-
     const headerContainer = document.querySelector("#header");
 
     if (headerContainer) {
-
         fetch(`${rootPath}components/header.html`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Header request failed: ${response.status}`);
                 }
+
                 return response.text();
             })
             .then(data => {
 
                 headerContainer.innerHTML = data;
 
-                setupHeaderNavigation(rootPath);
+                // =========================================
+                // FIX HEADER LOGO PATH
+                // =========================================
+                // Header is used on both root and nested pages.
+                // Make sure the logo always loads from the
+                // website root.
+                const headerLogo = headerContainer.querySelector(".nav-logo");
 
+                if (headerLogo) {
+                    headerLogo.src = `${rootPath}images/header/header-logo.png`;
+                }
+
+                setupHeaderNavigation(rootPath);
             })
             .catch(error => {
                 console.error("Error loading header:", error);
@@ -31,27 +38,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================================
-       LOAD FOOTER
-    ========================================= */
-
     const footerContainer = document.querySelector("#footer");
 
     if (footerContainer) {
-
         fetch(`${rootPath}components/footer.html`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Footer request failed: ${response.status}`);
                 }
+
                 return response.text();
             })
             .then(data => {
 
                 footerContainer.innerHTML = data;
 
-                setupFooterNavigation(rootPath);
+                // =========================================
+                // FIX FOOTER LOGO PATH
+                // =========================================
+                // Make sure the footer logo works on
+                // root pages and nested pages.
+                const footerLogo = footerContainer.querySelector(".footer-logo");
 
+                if (footerLogo) {
+                    footerLogo.src = `${rootPath}images/footer/footer-logo.png`;
+                }
+
+                setupFooterNavigation(rootPath);
             })
             .catch(error => {
                 console.error("Error loading footer:", error);
@@ -59,22 +72,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================================
-       HEADER NAVIGATION
-    ========================================= */
+    // =========================================
+    // HEADER NAVIGATION
+    // =========================================
 
     function setupHeaderNavigation(rootPath) {
 
         const header = document.querySelector(".site-header");
 
-        if (!header || header.dataset.navigationReady === "true") return;
+        if (!header || header.dataset.navigationReady === "true") {
+            return;
+        }
 
         header.dataset.navigationReady = "true";
 
 
-        /* -----------------------------------------
-           Fix navigation links
-        ----------------------------------------- */
+        // =========================================
+        // FIX NAVIGATION LINKS
+        // =========================================
 
         const navLinks = header.querySelectorAll(".main-nav a");
 
@@ -86,148 +101,274 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 link.href = `${rootPath}index.html`;
 
-            } else if (page.startsWith("pages/")) {
+            } else if (page && page.startsWith("pages/")) {
 
                 link.href = `${rootPath}${page}`;
-
             }
-
         });
 
 
-        /* -----------------------------------------
-           Fix brand link
-        ----------------------------------------- */
+        // =========================================
+        // FIX LOGO / BRAND LINK
+        // =========================================
 
-        const brand = header.querySelector(".brand");
+        const brand = header.querySelector(".navbar-brand, .brand");
 
         if (brand) {
             brand.href = `${rootPath}index.html`;
         }
 
 
-        /* -----------------------------------------
-           Active navigation item
-        ----------------------------------------- */
+        // =========================================
+        // ACTIVE NAVIGATION LINK
+        // =========================================
 
-        const pathSegments = window.location.pathname.split("/").filter(Boolean);
-        const currentFile = pathSegments[pathSegments.length - 1] || "index.html";
-        const parentFolder = pathSegments[pathSegments.length - 2];
-        const currentPage = parentFolder === "programmes"
-            ? "programmes.html"
-            : parentFolder === "articles"
-                ? "journal.html"
-                : currentFile;
+        const pathSegments = window.location.pathname
+            .split("/")
+            .filter(Boolean);
+
+        const currentFile =
+            pathSegments[pathSegments.length - 1] || "index.html";
+
+        const parentFolder =
+            pathSegments[pathSegments.length - 2];
+
+
+        const currentPage =
+            parentFolder === "programmes"
+                ? "programmes.html"
+                : parentFolder === "articles"
+                    ? "journal.html"
+                    : currentFile;
+
 
         navLinks.forEach(link => {
 
             const linkPage = link.href.split("/").pop();
 
             if (linkPage === currentPage) {
+
                 link.classList.add("active");
-                link.setAttribute("aria-current", "page");
+
+                link.setAttribute(
+                    "aria-current",
+                    "page"
+                );
+
             } else {
+
+                link.classList.remove("active");
+
                 link.removeAttribute("aria-current");
             }
-
         });
 
 
-        /* -----------------------------------------
-           Mobile menu
-        ----------------------------------------- */
+        // =========================================
+        // MOBILE MENU
+        // =========================================
 
-        const menuButton = header.querySelector(".menu-button");
-        const mainNav = header.querySelector(".main-nav");
-        const mobileBreakpoint = window.matchMedia("(max-width: 851px)");
+        const menuButton =
+            header.querySelector(".menu-button");
+
+        const mainNav =
+            header.querySelector(".main-nav");
+
+        const mobileBreakpoint =
+            window.matchMedia("(max-width: 851px)");
+
 
         if (menuButton && mainNav) {
 
-            const isMenuOpen = () => mainNav.classList.contains("menu-open");
+            const isMenuOpen = () => {
+                return mainNav.classList.contains("menu-open");
+            };
 
-            const setMenuOpen = (open, restoreFocus = false) => {
-                const shouldOpen = open && mobileBreakpoint.matches;
 
-                mainNav.classList.toggle("menu-open", shouldOpen);
-                menuButton.setAttribute("aria-expanded", String(shouldOpen));
-                menuButton.setAttribute(
-                    "aria-label",
-                    shouldOpen ? "Close navigation menu" : "Open navigation menu"
+            const setMenuOpen = (
+                open,
+                restoreFocus = false
+            ) => {
+
+                const shouldOpen =
+                    open && mobileBreakpoint.matches;
+
+
+                mainNav.classList.toggle(
+                    "menu-open",
+                    shouldOpen
                 );
 
-                if (!shouldOpen && restoreFocus && mobileBreakpoint.matches) {
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    String(shouldOpen)
+                );
+
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    shouldOpen
+                        ? "Close navigation menu"
+                        : "Open navigation menu"
+                );
+
+
+                if (
+                    !shouldOpen &&
+                    restoreFocus &&
+                    mobileBreakpoint.matches
+                ) {
+
                     menuButton.focus();
                 }
             };
 
-            menuButton.addEventListener("click", () => {
-                setMenuOpen(!isMenuOpen());
-            });
 
-            mainNav.addEventListener("click", event => {
-                if (event.target.closest("a")) {
-                    setMenuOpen(false);
-                }
-            });
+            // =========================================
+            // OPEN / CLOSE MENU
+            // =========================================
 
-            document.addEventListener("click", event => {
-                if (
-                    isMenuOpen() &&
-                    !mainNav.contains(event.target) &&
-                    !menuButton.contains(event.target)
-                ) {
-                    setMenuOpen(false);
-                }
-            });
+            menuButton.addEventListener(
+                "click",
+                () => {
 
-            document.addEventListener("keydown", event => {
-                if (event.key === "Escape" && isMenuOpen()) {
-                    setMenuOpen(false, true);
+                    setMenuOpen(
+                        !isMenuOpen()
+                    );
                 }
-            });
+            );
 
-            window.addEventListener("resize", () => {
-                if (!mobileBreakpoint.matches && isMenuOpen()) {
-                    setMenuOpen(false);
+
+            // =========================================
+            // CLOSE MENU AFTER CLICKING LINK
+            // =========================================
+
+            mainNav.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target.closest("a")
+                    ) {
+
+                        setMenuOpen(false);
+                    }
                 }
-            });
+            );
+
+
+            // =========================================
+            // CLOSE MENU WHEN CLICKING OUTSIDE
+            // =========================================
+
+            document.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        isMenuOpen() &&
+                        !mainNav.contains(event.target) &&
+                        !menuButton.contains(event.target)
+                    ) {
+
+                        setMenuOpen(false);
+                    }
+                }
+            );
+
+
+            // =========================================
+            // CLOSE MENU WITH ESCAPE
+            // =========================================
+
+            document.addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key === "Escape" &&
+                        isMenuOpen()
+                    ) {
+
+                        setMenuOpen(
+                            false,
+                            true
+                        );
+                    }
+                }
+            );
+
+
+            // =========================================
+            // HANDLE WINDOW RESIZE
+            // =========================================
+
+            window.addEventListener(
+                "resize",
+                () => {
+
+                    if (
+                        !mobileBreakpoint.matches &&
+                        isMenuOpen()
+                    ) {
+
+                        setMenuOpen(false);
+                    }
+                }
+            );
         }
-
     }
 
 
-    /* =========================================
-       FOOTER NAVIGATION
-    ========================================= */
+    // =========================================
+    // FOOTER NAVIGATION
+    // =========================================
 
     function setupFooterNavigation(rootPath) {
 
-        const footer = document.querySelector(".site-footer");
+        const footer =
+            document.querySelector(".site-footer");
 
-        if (!footer) return;
+        if (!footer) {
+            return;
+        }
 
-        const footerLinks = footer.querySelectorAll("a");
+
+        const footerLinks =
+            footer.querySelectorAll("a");
+
 
         footerLinks.forEach(link => {
 
-            const href = link.getAttribute("href");
+            const href =
+                link.getAttribute("href");
 
-            if (!href || href.startsWith("#") || href.startsWith("mailto:")) {
+
+            // Ignore anchors and email links
+            if (
+                !href ||
+                href.startsWith("#") ||
+                href.startsWith("mailto:")
+            ) {
+
                 return;
             }
 
+
             if (href === "index.html") {
 
-                link.href = `${rootPath}index.html`;
+                link.href =
+                    `${rootPath}index.html`;
 
-            } else if (href.startsWith("pages/")) {
+            } else if (
+                href.startsWith("pages/")
+            ) {
 
-                link.href = `${rootPath}${href}`;
-
+                link.href =
+                    `${rootPath}${href}`;
             }
-
         });
-
     }
 
 });

@@ -88,7 +88,48 @@ main > .approach-cta:last-child::after {
 
 /* BRAND */
 
-.footer-logo {
+.footer-brand .footer-logo {
+    width: 230px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.footer-description {
+    margin: 0;
+    max-width: 350px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #b9c6cf;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .footer-brand .footer-logo {
+        width: 210px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .footer-brand {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-brand .footer-logo {
+        width: 190px;
+        margin-bottom: 12px;
+    }
+
+    .footer-description {
+        max-width: 300px;
+        font-size: 15px;
+    }
+}
+
+/* .footer-logo {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -119,9 +160,9 @@ main > .approach-cta:last-child::after {
     font-weight: 700;
 
     transform: rotate(-15deg);
-}
+} */
 
-.footer-brand p {
+/* .footer-brand p {
     max-width: 310px;
     margin: 20px 0 0;
 
@@ -129,7 +170,7 @@ main > .approach-cta:last-child::after {
 
     font-size: 13px;
     line-height: 1.8;
-}
+} */
 
 /* FOOTER HEADINGS */
 

@@ -140,7 +140,7 @@ input {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1.7px;
-    line-height: 1.4;
+    line-height: 1.6;
     margin-bottom: 13px;
     text-transform: uppercase;
 }
@@ -181,7 +181,7 @@ h3 {
     align-items: center;
     gap: 6px;
     color: var(--navy);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     border-bottom: 1px solid #b8c4ca;
     padding-bottom: 3px;
@@ -291,7 +291,7 @@ h3 {
 
 .note-number {
     color: #8a969e;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -299,13 +299,13 @@ h3 {
 .hero-note strong {
     display: block;
     color: var(--navy);
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .hero-note p {
     color: var(--body);
-    font-size: 10px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.6;
     margin-top: 4px;
 }
 
@@ -378,7 +378,7 @@ h3 {
 
 .section-content > p {
     color: var(--body);
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.75;
     margin-bottom: 16px;
 }
@@ -410,7 +410,7 @@ h3 {
 .heading-description {
     max-width: 330px;
     color: var(--body);
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
 }
 
@@ -457,7 +457,7 @@ h3 {
 
 .approach-card p {
     color: var(--body);
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.65;
     margin-top: 12px;
     max-width: 220px;
@@ -483,7 +483,7 @@ h3 {
 
 .learning-content > p:last-child {
     color: var(--body);
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.75;
     max-width: 420px;
 }
@@ -521,18 +521,18 @@ h3 {
 
 .experience-item > span {
     color: #849198;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
 }
 
 .experience-item h3 {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .experience-item p {
     color: var(--body);
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.6;
     margin-top: 4px;
 }
 
@@ -584,7 +584,7 @@ h3 {
 
 .why-icon {
     color: #87939a;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -598,7 +598,7 @@ h3 {
 
 .why-card p {
     color: var(--body);
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.6;
     margin-top: 10px;
 }
@@ -647,7 +647,7 @@ h3 {
 
 .category {
     color: #7b8991;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 1.2px;
     font-weight: 700;
     text-transform: uppercase;
@@ -662,7 +662,7 @@ h3 {
 
 .journal-body > p {
     color: var(--body);
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.6;
     margin-top: 10px;
 }
@@ -676,7 +676,7 @@ h3 {
     margin-top: 20px;
     padding-top: 16px;
     color: #87939b;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .journal-meta a {
@@ -747,7 +747,7 @@ h3 {
 }
 
 .final-cta p:last-child {
-    font-size: 13px;
+    font-size: 15px;
     color: #c3cdd4;
     margin-top: 4px;
 }
@@ -777,8 +777,8 @@ h3 {
 .contact-intro {
     max-width: 470px;
     color: var(--body);
-    font-size: 13px;
-    line-height: 1.75;
+    font-size: 15px;
+    line-height: 1.6;
     margin-top: 17px;
 }
 
@@ -802,7 +802,7 @@ h3 {
 .contact-label {
     display: block;
     color: #7b8991;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 1.2px;
     margin-bottom: 6px;
